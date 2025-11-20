@@ -46,7 +46,7 @@ runs:
       shell: bash
       run: |
         echo ">>> Generating cluster certificate..."
-        hcloud CCE CreateAutopilotKubernetesClusterCert \
+        hcloud CCE CreateKubernetesClusterCert \
           --cli-region=${{ inputs.region }} \
           --cluster_id=${{ inputs.cluster_id }} \
           --duration=${{ inputs.duration }} > /tmp/cert.json

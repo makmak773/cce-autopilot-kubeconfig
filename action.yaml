@@ -37,7 +37,6 @@ runs:
     - name: Configure Huawei Cloud CLI
       shell: bash
       run: |
-        hcloud configure set --cli-offline=false
 
         
         hcloud configure set --access-key=${{ inputs.access_key }} --secret-key=${{ inputs.secret_key }} --region=${{ inputs.region }}

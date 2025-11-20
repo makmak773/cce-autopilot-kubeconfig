@@ -52,7 +52,6 @@ runs:
           --duration=${{ inputs.duration }} > /tmp/cert.json
 
         echo ">>> Validating JSON..."
-        cat /tmp/cert.json
         jq -e . /tmp/cert.json || { echo "Invalid JSON"; exit 1; }
 
         echo ">>> Extracting kubeconfig..."

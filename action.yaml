@@ -47,7 +47,7 @@ runs:
         expect eof
         EOF
         
-        hcloud configure set --access-key=${{ inputs.access_key }} --secret-key=${{ inputs.secret_key }} --region=${{ inputs.secret_key }}
+        hcloud configure set --access-key=${{ inputs.access_key }} --secret-key=${{ inputs.secret_key }} --region=${{ inputs.region }}
 
     - name: Generate cluster kubeconfig
       id: gen_config

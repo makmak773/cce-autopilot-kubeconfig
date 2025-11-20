@@ -61,8 +61,8 @@ runs:
         mkdir -p ~/.kube
         mv /tmp/kubeconfig.yaml ~/.kube/config
         chmod 600 ~/.kube/config
-        cat  ~/.kube/config
+  
 
         echo "kubeconfig=~/.kube/config" >> $GITHUB_OUTPUT
-        kubectl cluster-info
+  
 

@@ -64,4 +64,5 @@ runs:
         chmod 600 ~/.kube/config
 
         echo "kubeconfig=$HOME/.kube/config" >> $GITHUB_OUTPUT
+        kubectl cluster-info
 

@@ -71,13 +71,6 @@ runs:
 
         hcloud configure set --cli-offline=false
 
-        /usr/bin/expect <<EOF
-        set timeout 10
-        spawn hcloud
-        expect "Agree and continue (y)/Disagree and exit (N):"
-        send "y\r"
-        expect eof
-        EOF
 
     - name: Generate cluster kubeconfig
       id: gen

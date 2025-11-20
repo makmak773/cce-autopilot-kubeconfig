@@ -37,6 +37,8 @@ runs:
     - name: Configure Huawei Cloud CLI
       shell: bash
       run: |
+        hcloud configure set --cli-offline=false
+
         /usr/bin/expect <<EOF
         set timeout 10
         spawn hcloud
@@ -44,6 +46,7 @@ runs:
         send "y\r"
         expect eof
         EOF
+        
         hcloud configure set --access-key=${{ inputs.access_key }} --secret-key=${{ inputs.secret_key }} --region=${{ inputs.secret_key }}
 
     - name: Generate cluster kubeconfig

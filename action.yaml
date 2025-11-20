@@ -38,7 +38,7 @@ runs:
       shell: bash
       run: |
         hcloud configure set --cli-offline=false
-
+        export HUAWEICLOUD_SDK_ACCEPT_LICENSE=true
         /usr/bin/expect <<EOF
         set timeout 10
         spawn hcloud

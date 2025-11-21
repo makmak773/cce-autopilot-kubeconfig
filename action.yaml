@@ -58,6 +58,7 @@ runs:
         yq eval -P '.' /tmp/cert.json > /tmp/kubeconfig.yaml
 
         echo ">>> build kubeconfig..."
+        echo $HOME
         mkdir -p ~/.kube
         mv /tmp/kubeconfig.yaml ~/.kube/config
         chmod 600 ~/.kube/config

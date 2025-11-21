@@ -59,6 +59,8 @@ runs:
 
         echo ">>> build kubeconfig..."
         echo $HOME
+        pwd
+        ls -la
         mkdir -p ~/.kube
         mv /tmp/kubeconfig.yaml ~/.kube/config
         chmod 600 ~/.kube/config

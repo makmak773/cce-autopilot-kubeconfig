@@ -1,4 +1,4 @@
-name: "Huawei CCE Autopilot Kubeconfig Setup"
+name: "Huawei CCE Kubeconfig Setup"
 description: "Generate kubeconfig for Huawei Cloud CCE clusters"
 author: "James Mak"
 branding:
@@ -36,9 +36,7 @@ runs:
   steps:
     - name: Configure Huawei Cloud CLI
       shell: bash
-      run: |
-
-        
+      run: |       
         hcloud configure set --access-key=${{ inputs.access_key }} --secret-key=${{ inputs.secret_key }} --region=${{ inputs.region }}
 
     - name: Generate cluster kubeconfig

@@ -49,23 +49,21 @@ runs:
         hcloud CCE CreateKubernetesClusterCert \
           --cli-region=${{ inputs.region }} \
           --cluster_id=${{ inputs.cluster_id }} \
-          --duration=${{ inputs.duration }} > /tmp/cert.json
+          --duration=${{ inputs.duration }} > ./cert.json
 
         echo ">>> Validating JSON..."
-        jq -e . /tmp/cert.json || { echo "Invalid JSON"; exit 1; }
+        jq -e . ./cert.json || { echo "Invalid JSON"; exit 1; }
 
         echo ">>> Extracting kubeconfig..."
-        yq eval -P '.' /tmp/cert.json > /tmp/kubeconfig.yaml
+        yq eval -P '.' ./cert.json > ./kubeconfig.yaml
 
         echo ">>> build kubeconfig..."
-        echo $HOME
         pwd
         ls -la
-        mkdir -p ~/.kube
-        mv /tmp/kubeconfig.yaml ~/.kube/config
-        chmod 600 ~/.kube/config
-  
+        mkdir .kube
+        mv ./kubeconfig.yaml .kube/config
+        chmod 600 .kube/config
 
-        echo "kubeconfig=~/.kube/config" >> $GITHUB_OUTPUT
+        echo "kubeconfig=.kube/config" >> $GITHUB_OUTPUT
   
 
